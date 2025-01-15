@@ -27,6 +27,10 @@
         Close
     </button>
 
+    <button onclick="window.dispatchEvent(new Event('close'))">
+        Emit event
+    </button>
+
     <script>
         // Broadcast Channel Initialization
         const channel = new BroadcastChannel('broadcast_channel_demo');
