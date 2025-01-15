@@ -1,0 +1,42 @@
+<!-- Sender Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadcast Channel Sender</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Broadcast Channel Sender</h1>
+    <button class="button" id="sendMessage">Send Broadcast Message</button>
+
+    <script>
+        // Broadcast Channel Initialization
+        const channel = new BroadcastChannel('broadcast_channel_demo');
+
+        // Sender Logic
+        document.getElementById('sendMessage').addEventListener('click', () => {
+            const message = `Message sent at ${new Date().toLocaleTimeString()}`;
+            channel.postMessage(message);
+            alert('Message sent: ' + message);
+        });
+    </script>
+</body>
+</html>
