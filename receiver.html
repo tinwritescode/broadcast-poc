@@ -1,0 +1,39 @@
+<!-- Receiver Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Broadcast Channel Receiver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        #messages {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Broadcast Channel Receiver</h1>
+    <div id="messages">No messages received yet.</div>
+
+    <script>
+        // Broadcast Channel Initialization
+        const channel = new BroadcastChannel('broadcast_channel_demo');
+
+        // Receiver Logic
+        const messagesDiv = document.getElementById('messages');
+        channel.onmessage = (event) => {
+            const newMessage = document.createElement('div');
+            newMessage.textContent = event.data;
+            messagesDiv.appendChild(newMessage);
+        };
+    </script>
+</body>
+</html>
